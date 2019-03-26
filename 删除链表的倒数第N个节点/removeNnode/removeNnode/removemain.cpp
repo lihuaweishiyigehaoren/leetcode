@@ -28,6 +28,27 @@ class Solution {
 public:
 	ListNode* removeNthFromEnd(ListNode* head, int n) {
 
+		int length = 0;
+		ListNode * dummy = new ListNode(0);
+		dummy->next = head;
+		ListNode * first = head;
+		while (first != NULL)
+		{
+			length++;
+			first = first->next;
+		}
+
+		length = length - n;
+
+		while (length>0)
+		{
+			length--;
+			first = first->next;
+		}
+
+		first->next = first->next->next;
+
+		return dummy->next;
 	}
 };
 
@@ -46,6 +67,8 @@ int main()
 	ListNode * reValue;
 	Solution A;
 	reValue = A.removeNthFromEnd(a, 2);
+
+	// std::cout << "helloworld" << std::endl;
 
 	system("pause");
 	return 0;
