@@ -20,7 +20,7 @@ void quickSorted(int b[], int low, int high)
     if(low >= high) return;
 
     int middle = (low+high)/2;
-    // std::cout<<middle<<std::endl;
+    std::cout<< middle<< std::endl;
     
     int copyB[high-low+1], start = low;
     for(int i = 0;i < high-low+1; i++)
@@ -54,7 +54,10 @@ void quickSorted(int b[], int low, int high)
         }
     }
 
-    printArray(b,low,high+1);
+    // printArray(b,low,high+1);
+
+    std::cout << "(" << low << "," << whichindex-1 << ")" <<std::endl;
+    std::cout << "(" << whichindex+1 << "," << high << ")" <<std::endl;
 
     quickSorted(b,low,whichindex-1);
     quickSorted(b,whichindex+1,high);
